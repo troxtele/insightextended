@@ -1,10 +1,14 @@
-const option = document.querySelector(".label");
+const contents = [...document.querySelectorAll(".left-content")];
 const options = document.querySelector(".options ul");
-const lists = [...options.querySelectorAll(".sidenav a")];
 
-option.addEventListener("click", () => {
-  option.querySelector(".arrow svg").classList.toggle("rotate");
-  options.classList.toggle("heightwidth");
+const lists = [...document.querySelectorAll(".sidenav a")];
+
+contents.map((content) => {
+  content.querySelector(".label").addEventListener("click", () => {
+    const options = content.querySelector(".options ul");
+    content.querySelector(".arrow svg").classList.toggle("rotate");
+    options.classList.toggle("heightwidth");
+  });
 });
 
 // Active option
@@ -14,4 +18,3 @@ lists.map((list) =>
     list.classList.add("active");
   })
 );
-
